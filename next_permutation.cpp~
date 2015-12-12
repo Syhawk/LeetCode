@@ -1,0 +1,35 @@
+//uri:	https://leetcode.com/problems/next-permutation/
+
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+class Solution {
+public:
+	void nextPermutation(vector<int>& nums){
+		int size = nums.size();
+		if(size == 1) return nums;
+		int i = size - 2;
+		for( ; i >= 0 && (nums[i] >= nums[i + 1]; -- i) ;
+
+		if(i >= 0) {
+			int j = size - 1;
+			for( ; j > i && nums[j] <= nums[i]; -- j) ;
+			swap(nums[i], nums[j]);
+		}
+
+		for(int j = size - 1; i < j; ++ i, -- j) {
+			swap(nums[i], nums[j]);
+		}
+
+		return nums;
+	}
+};
+
+int main() {
+	Solution* s = new Solution();
+	vector<int> v = {1, 2, 4};
+
+	return 0;
+}
