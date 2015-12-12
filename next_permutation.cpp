@@ -29,3 +29,15 @@ public:
 	}
 };
 
+
+/*
+ *	使用C++ STL里面的next_permutation函数
+ *	（对应的也有prev_permutation函数）
+ * */
+
+class Solution {
+public:
+	void nextPermutation(vector<int>& nums){
+		next_permutation(nums);
+	}
+};
