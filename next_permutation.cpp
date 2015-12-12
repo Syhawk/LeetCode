@@ -22,7 +22,7 @@ public:
 			swap(nums[i], nums[j]);
 		}
 
-        i += 1;
+        	i += 1;
 		for(int j = size - 1; i < j; ++ i, -- j) {
 			swap(nums[i], nums[j]);
 		}
