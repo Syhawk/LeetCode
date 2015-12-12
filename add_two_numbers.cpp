@@ -1,3 +1,9 @@
+/*
+ *	首先判断两个链表是否为空，若存在一个链表为空，直接返回。
+ *	两个链表均不为空时，以l1链表为基准，讲l2链表上的数值加到
+ *	l1上面，返回链表l1.
+ * */
+
 /**
  * Definition for singly-linked list.
  * struct ListNode {
