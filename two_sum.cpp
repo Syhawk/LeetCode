@@ -1,3 +1,5 @@
+//uri:	https://leetcode.com/problems/two-sum/
+
 /*
  *	首先对数组nums的下标index升序排序，排序准则是根据当前下标
  *	在nums所表示元素的大小。
