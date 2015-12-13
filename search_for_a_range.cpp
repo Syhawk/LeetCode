@@ -2,6 +2,8 @@
 
 /*
  *	实际上是编写二分查找的lower_bound和upper_bound函数
+ *	空间复杂度：O(1).
+ *	时间复杂度：O(logn).
  * */
 
 class Solution {
