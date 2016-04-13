@@ -12,13 +12,13 @@ public:
     vector<int> majorityElement(vector<int>& nums) {
         vector<int> v;
         int len = nums.size();
-        for(int i = 0, j, k; i < len; i += 3) {
-            for(j = i + 1; j < len && nums[j] == nums[i]; ++ j);
-            for(k = j + 1; k < len && (nums[k] == nums[i] || nums[k] == nums[j]); ++ k);
+        for(int i = 0, j = i + 1, k = j + 1; i < len; i += 3) {
+            for(j = max(i + 1, j); j < len && nums[j] == nums[i]; ++ j);
+            for(k = max(j + 1, k); k < len && (nums[k] == nums[i] || nums[k] == nums[j]); ++ k);
             
             if(k < len) {
-                swap(nums[i + 1], nums[j]);
-                swap(nums[i + 2], nums[k]);
+                swap(nums[i + 1], nums[j ++]);
+                swap(nums[i + 2], nums[k ++]);
                 continue;
             }
             if(j < len && majority(nums[j], nums, len)) { v.push_back(nums[j]); }
