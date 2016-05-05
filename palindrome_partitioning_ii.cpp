@@ -35,3 +35,44 @@ public:
         return dp[0];
     }
 };
+
+/*
+ *	相比于上面的方法，时耗更少。
+ *	方法二：从当前下标开始到字符串尾后下标查找可能出现的所有回文，并把该回文的下一个下标加入队列。
+ *	已经加入队列的下标以后不再加入。最早切割到字符串最后一个字符的切割方式为最优切割方式。
+ *	空间复杂度：O(n).
+ *	时间复杂度：O(n * m).
+ * */
+
+class Solution {
+public:
+    int minCut(string s) {
+        int len = s.size();
+        vector<bool> vis(len, 0);
+        queue<pair<int, int>> que;
+        
+        que.push(make_pair(0, 0));
+        
+        while( !que.empty() ) {
+            auto p = que.front();
+            que.pop();
+            
+            for( int i = len; i > p.first; -- i) {
+                int rhs = i - 1;
+                int lhs = p.first;
+                
+                for( ; lhs <= rhs && s[lhs] == s[rhs]; ++ lhs, -- rhs);
+                
+                if ( lhs <= rhs ) { continue; }
+                if( i == len ) { return p.second; }
+                
+                if ( !vis[i] ) {
+                    que.push(make_pair(i, p.second + 1));
+                    vis[i] = true;
+                }
+            }
+        }
+
+        return len - 1;
+    }
+};
